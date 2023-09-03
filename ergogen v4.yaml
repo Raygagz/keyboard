@@ -1,0 +1,139 @@
+points:
+  key:
+    padding: cy
+    tags:
+      1u: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        nets:
+          from: =colrow
+          to: =column_net
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: true
+      diode:
+        type: diode
+        nets:
+          from: =colrow
+          to: =row_net
+        anchor:
+          shift: [0, -5]
+  zones:
+    matrix:
+      columns:
+        outer:
+          key:
+            column_net: P4
+          rows:
+            bottom:
+              bind: [0,67,0,0]
+            home:
+              bind: [0,63,0,0]
+            top:
+              bind: [0,67,0,0]
+            number:
+              bind: [0,67,0,0]
+        pinky:
+          key:
+            column_net: P5
+        ring:
+          key:
+            column_net: P6
+            stagger: 13
+            spread: 1cx + 2
+            splay: -2
+          rows:
+            number:
+              bind: [0,4,0,0]
+        middle:
+          key:
+            column_net: P7
+            stagger: 3
+            spread: 1cx + 1.5
+            splay: -2
+        index:
+          key:
+            column_net: P8
+            stagger: -8
+            spread: 1cx + 1.5
+            splay: -5
+          rows:
+            number:
+              bind: [0,0,0,7.5]
+        inner:
+          key:
+            column_net: P9
+            stagger: 23
+            spread: 1cx + 2
+          rows:
+            bottom: $unset
+            home:
+              bind: [0,0,13.5,2.5]
+            top:
+              bind: [0,0,0,2.5]
+            number:
+              bind: [0,0,0,2.5]
+      rows:
+        bottom:
+          row_net: P0
+        home:
+          row_net: P1
+        top:
+          row_net: P2
+        number:
+          row_net: P3
+    thumbfan:
+      anchor:
+        ref: matrix_index_bottom
+        shift: [8, -20]
+      columns:
+        near:
+          key:
+            column_net: P7
+          rows:
+            thumb:
+              bind: [15,4.5,0,0]
+        home:
+          key:
+            stagger: -5
+            spread: 1cx + 1.5
+            splay: -5
+          rows:
+            bottom:
+              key:
+                column_net: P8
+            top:
+              row_net: P0
+              key:
+                column_net: P9
+              bind: [0,0,0,0]
+        far:
+          key:
+            column_net: P9
+            stagger: 9
+            spread: 1cx + 1
+            splay: -13
+            origin: [-11.75, -9]
+          rows:
+            thumb:
+              bind: [0,0,0,5.6]
+
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [1cx - 0.5, 1cx - 0.5]
+  cutout:
+    - what: outline
+      name: raw
+      fillet: 2
+  keycap_outlines:
+    - what: rectangle
+      where: true
+      size: [1cx - 0.5, 1cy - 0.5] # Choc keycaps are 17.5 x 16.5
+      bound: false
+
+pcbs:
